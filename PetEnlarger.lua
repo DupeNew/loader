@@ -1,7 +1,17 @@
 local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local jobId = game.JobId
+
+local executionKey = "PetEnlarger_" .. player.UserId .. "_" .. jobId
+
+if getgenv()[executionKey] then
+    return
+end
+
+getgenv()[executionKey] = true
+
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
-local player = Players.LocalPlayer
 
 local loadingTime = 20
 local isLoading = false
