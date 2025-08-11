@@ -1,5 +1,15 @@
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
+local jobId = game.JobId
+
+local executionKey = "PetMutationESP_" .. player.UserId .. "_" .. jobId
+
+if getgenv()[executionKey] then
+    return
+end
+
+getgenv()[executionKey] = true
+
 local PlayerGui = player:WaitForChild("PlayerGui")
 local Workspace = game:GetService("Workspace")
 local TweenService = game:GetService("TweenService")
