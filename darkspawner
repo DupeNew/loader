@@ -1,2 +1,14 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local jobId = game.JobId
+
+local executionKey = "DarkSpawner_" .. player.UserId .. "_" .. jobId
+
+if getgenv()[executionKey] then
+    return
+end
+
+getgenv()[executionKey] = true
+
 local Spawner = loadstring(game:HttpGet("https://gitlab.com/darkiedarkie/dark/-/raw/main/Spawner.lua"))()
 Spawner.Load()
